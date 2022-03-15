@@ -3,11 +3,34 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "eslint": "^8.11.0",
     "express": "^4.17.3",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3"
-  }
+  },
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "lfbe": "eslint src --fix",
+    "lffe": "eslint public --fix"
+  },
+  "name": "nodejs---mysql-exam-type5",
+  "version": "1.0.0",
+  "description": "NodeJS_MySQL_Exam",
+  "main": "server.js",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrejPon/NodeJS_MySQL_Exam.git"
+  },
+  "author": "A.P.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrejPon/NodeJS_MySQL_Exam/issues"
+  },
+  "homepage": "https://github.com/AndrejPon/NodeJS_MySQL_Exam#readme"
 }
