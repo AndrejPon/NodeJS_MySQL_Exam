@@ -16,3 +16,13 @@ Content-Type: application/json
     "email": "john@email.com",
     "password": "secret123"
 }
+
+###
+
+POST http://localhost:3000/addgroup
+Content-Type: application/json
+
+{
+    "name": "Trip to Paris"
+   
+}
