@@ -20,9 +20,9 @@ function verifyJwtToken(token) {
   const jwtSecret = process.env.JWT_TOKEN_SECRET;
   try {
     const payload = jwt.verify(token, jwtSecret);
+    // console.log('payload ===', payload.id);
     return payload;
   } catch (err) {
-    // err
     console.log('err ===', err.message);
     return false;
   }
