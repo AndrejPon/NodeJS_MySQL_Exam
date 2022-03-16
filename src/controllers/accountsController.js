@@ -1,4 +1,4 @@
-const { insertAccount } = require('../models/accountsModel');
+const { insertAccount, getUserGroupsDb } = require('../models/accountsModel');
 const { failResponce, successResponce } = require('../utils/dbHelpers');
 
 async function createAccount(req, res) {
@@ -9,6 +9,15 @@ async function createAccount(req, res) {
 
   return successResponce(res, userResults);
 }
+async function getUserGroups(req, res) {
+  const user_id = req.userId;
+  const getGroupsResults = await getUserGroupsDb(user_id);
+  if (getGroupsResults === false) return failResponce(res);
+
+  return successResponce(res, getGroupsResults);
+}
+
 module.exports = {
   createAccount,
+  getUserGroups,
 };

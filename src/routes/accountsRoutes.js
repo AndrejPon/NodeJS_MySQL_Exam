@@ -10,6 +10,10 @@ accountsRoutes.post(
   accountsController.createAccount,
 );
 
-// authRoutes.get('/users', authController.usersIndex);
+accountsRoutes.get(
+  '/accounts',
+  validateToken,
+  accountsController.getUserGroups,
+);
 
 module.exports = accountsRoutes;

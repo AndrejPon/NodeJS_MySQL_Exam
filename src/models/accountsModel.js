@@ -18,6 +18,21 @@ async function findUserById(userId) {
   }
 }
 
+async function getUserGroupsDb(userId) {
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+    const sql = `
+    SELECT accounts.user_id, accounts.group_id, groups.name FROM accounts LEFT JOIN groups ON accounts.group_id=groups.id WHERE user_id=?
+    `;
+    const [groupsFoundResult] = await conn.execute(sql, [userId]);
+    await conn.close();
+    return groupsFoundResult;
+  } catch (error) {
+    console.log('getUserGroupsDb===', error);
+    return false;
+  }
+}
+
 async function insertAccount(group_id, user_id) {
   try {
     const conn = await mysql.createConnection(dbConfig);
@@ -38,4 +53,5 @@ VALUES (?, ?)
 module.exports = {
   findUserById,
   insertAccount,
+  getUserGroupsDb,
 };
