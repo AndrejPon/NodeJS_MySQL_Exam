@@ -49,3 +49,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 
 GET http://localhost:3000/bills/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTAzMDkyLCJleHAiOjE2NDc1MDY2OTJ9.fRwmzO8_ePIrl1VQo3oq7eEd8R58zaWDqQBfDGYgVUI
+
+###
+
+POST http://localhost:3000/bills
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTAzMDkyLCJleHAiOjE2NDc1MDY2OTJ9.fRwmzO8_ePIrl1VQo3oq7eEd8R58zaWDqQBfDGYgVUI
+Content-Type: application/json
+
+{
+   
+    "group_id": 2,
+    "amount": 42,
+    "description": "Museum tickets"    
+    
+}

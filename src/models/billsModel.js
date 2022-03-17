@@ -33,25 +33,28 @@ async function getGroupBillsDb(groupId) {
   }
 }
 
-// async function insertAccount(group_id, user_id) {
-//   try {
-//     const conn = await mysql.createConnection(dbConfig);
-//     const sql = `
-// INSERT INTO ${tableName} (group_id, user_id)
-// VALUES (?, ?)
-// `;
-//     const [insertResult] = await conn.execute(sql, [group_id, user_id]);
-//     // console.log('inserted data===', [group_id, user_id]);
-//     await conn.close();
-//     return insertResult;
-//   } catch (error) {
-//     console.log('insertAccount===', error);
-//     return false;
-//   }
-// }
+async function insertNewBill(group_id, amount, description) {
+  try {
+    const conn = await mysql.createConnection(dbConfig);
+    const sql = `
+INSERT INTO ${tableName} (group_id, amount, description)
+VALUES (?, ?, ?)
+`;
+    const [insertBillResult] = await conn.execute(sql, [
+      group_id,
+      amount,
+      description,
+    ]);
+    await conn.close();
+    return insertBillResult;
+  } catch (error) {
+    console.log('insertNewBill===', error);
+    return false;
+  }
+}
 
 module.exports = {
   // findUserById,
-  // insertAccount,
+  insertNewBill,
   getGroupBillsDb,
 };
