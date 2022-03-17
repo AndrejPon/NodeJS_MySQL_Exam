@@ -28,9 +28,10 @@ async function validateTutorial(req, res, next) {
 }
 async function validateUserRegister(req, res, next) {
   const schema = Joi.object({
-    full_name: Joi.string().min(5).required(),
+    fullname: Joi.string().min(5).required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(5).max(50).required(),
+    // repeatpassword: Joi.string().required().valid(Joi.ref('password')),
   });
 
   try {

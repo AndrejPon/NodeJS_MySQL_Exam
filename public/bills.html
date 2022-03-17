@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bills</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+  />
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="header">
+        <header>
+        <img src="https://images.vexels.com/media/users/3/142812/isolated/lists/992801ae3182fa95353e941cfcac9293-shield-logo-emblem-design.png" alt="Logo">
+        <h1>Split Bill</h1>
+        <p>BEST IN MARKET</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="groups.html">Groups</a></li>
+                <li><a href="bills.html">Bills</a></li>
+            </ul>
+        </nav>
+    </div>
+  
+    <h1 class="bills-name">Group's bills:</h1>
+    <div class="bills-container"></div>
+    <div class="errors"></div>
+    <!-- <fieldset> -->
+        <div class="add-bill-container">
+        <h2>Add bill</h2>
+    <form id="addbill">
+        <label for="id"><h4>Group ID:</h4></label>
+        <div class="group-input"><input type="number" name="groupid" placeholder=""></div>
+       
+        <button>Add</button>
+        
+    </form>
+</div>
+<!-- </fieldset> -->
+    <script src="js/groups.js"></script>  
+</body>
+</html>

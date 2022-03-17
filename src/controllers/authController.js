@@ -4,10 +4,10 @@ const { failResponce, successResponce } = require('../utils/dbHelpers');
 const { hashPass, verifyHash, generateJwtToken } = require('../utils/helper');
 
 async function register(req, res) {
-  const { full_name, email, password } = req.body;
+  const { fullname, email, password } = req.body;
 
   const hashedPassword = hashPass(password);
-  const insertResult = await insertUser(full_name, email, hashedPassword);
+  const insertResult = await insertUser(fullname, email, hashedPassword);
 
   return insertResult === false
     ? failResponce(res)
