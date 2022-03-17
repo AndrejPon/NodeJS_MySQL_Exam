@@ -23,7 +23,7 @@ POST http://localhost:3000/addgroup
 Content-Type: application/json
 
 {
-    "name": "Trip to Paris"
+    "name": "Trip to Vilnius"
    
 }
 
@@ -43,8 +43,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/accounts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTAzMDkyLCJleHAiOjE2NDc1MDY2OTJ9.fRwmzO8_ePIrl1VQo3oq7eEd8R58zaWDqQBfDGYgVUI
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTE3NzYxLCJleHAiOjE2NDc1MjEzNjF9.Cb40YVFg9YrH6mzz2EPneWGTkrRpFlu4QRHa5fst4JI
 ###
 
 GET http://localhost:3000/bills/1
