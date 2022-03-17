@@ -1,5 +1,6 @@
 .header,
-.select-group {
+.select-group,
+.bills-name {
   text-align: center;
 }
 img {
@@ -29,7 +30,8 @@ li {
 input {
   width: 95%;
 }
-.group-input input {
+.group-input input,
+#addbill input {
   width: 50%;
 }
 

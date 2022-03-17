@@ -1,4 +1,3 @@
-// const { func } = require('joi');
 const mysql = require('mysql2/promise');
 const dbConfig = require('../dbConfig');
 
@@ -12,7 +11,7 @@ INSERT INTO ${tableName} (name)
 VALUES (?)
 `;
     const [insertResult] = await conn.execute(sql, [name]);
-    console.log('inserted data===', [name]);
+    // console.log('inserted data===', [name]);
     await conn.close();
     return insertResult;
   } catch (error) {

@@ -1,8 +1,8 @@
-const URL = 'http://localhost:3000/accounts';
+const URL = 'http://localhost:3000/bills/:id';
 const errorsContainerEl = document.querySelector('.errors');
 
-const groupsContainerEl = document.querySelector('.groups-container');
-async function getAllGroups() {
+const billsContainerEl = document.querySelector('.bills-container');
+async function getAllBills() {
   const token = localStorage.getItem('login_token');
   const resp = await fetch(URL, {
     headers: { Authorization: `Bearer ${token}` },
@@ -12,50 +12,51 @@ async function getAllGroups() {
   if (jsData.success === false) {
     window.location.replace('login.html');
   }
-  renderGroups(jsData.data, groupsContainerEl);
+  renderBills(jsData.data, billsContainerEl);
 }
 
-function renderGroups(groupsArr, dest) {
+function renderBills(billsArr, dest) {
   dest.innerHTML = '';
-  // console.log('renderGroups ===', renderGroups);
-  // console.log('groupsArr ===', groupsArr);
-  groupsArr.forEach(({ group_id, name }) => {
+  // console.log('renderBills ===', renderBills);
+  console.log('billsArr ===', billsArr);
+  billsArr.forEach(({ group_id, amount, description }) => {
     dest.innerHTML += `
-    <article class="single-group">
+    <article class="single-bill">
         <h2 class="group-id">ID: ${group_id}</h2>
-        <p>${name}</p>
+        <p>$${amount}</p>
+        <p>${description}</p>
     </article>
     `;
   });
 }
 
-const formEl = document.forms.addgroup;
+const formEl = document.forms.addbill;
 
 formEl.addEventListener('submit', (e) => {
   e.preventDefault();
-  const newGroupObj = {
-    group_id: formEl.elements.groupid.value,
+  const newBillObj = {
+    amount: formEl.elements.amount.value,
+    description: formEl.elements.description.value,
   };
-  // console.log('newGroupObj ===', newGroupObj);
-  createNewGroup(newGroupObj);
+  console.log('newBillObj ===', newBillObj);
+  createNewBill(newBillObj);
 });
 
-async function createNewGroup(newGroupObj) {
+async function createNewBill(newBillObj) {
   const token = localStorage.getItem('login_token');
   if (token === null) throw new Error('token not found');
-
   const resp = await fetch(`${URL}`, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(newGroupObj),
+    body: JSON.stringify(newBillObj),
   });
   const dataInJs = await resp.json();
-  // console.log('dataInJs ===', dataInJs);
+  console.log('dataInJs ===', dataInJs);
   if (dataInJs.success === true) {
-    getAllGroups();
+    getAllBills();
   } else {
     handleErrors();
   }
@@ -64,7 +65,7 @@ async function createNewGroup(newGroupObj) {
 function handleSuccess() {
   const alertEl = document.createElement('h4');
   alertEl.className = 'alert';
-  alertEl.textContent = 'New group added';
+  alertEl.textContent = 'New bill added';
   document.body.prepend(alertEl);
   setTimeout(() => {
     alertEl.remove();
@@ -73,11 +74,11 @@ function handleSuccess() {
   formEl.reset();
 }
 
-function handleErrors(erorrArray) {
+function handleErrors(errorArray) {
   errorsContainerEl.innerHTML = '';
-  console.log('erorrArray ===', erorrArray);
-  erorrArray.details.forEach((err) => {
+  console.log('errorArray ===', errorArray);
+  errorArray.details.forEach((err) => {
     errorsContainerEl.innerHTML += `<p>${err.message}</p>`;
   });
 }
-getAllGroups();
+getAllBills();

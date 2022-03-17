@@ -26,23 +26,46 @@
                 <li><a href="bills.html">Bills</a></li>
             </ul>
         </nav>
+            </div>
+            <h1 class="bills-name">Group's bills:</h1>
+    <div class="table-container">
+        <table>
+            <tr>
+              <th>ID</th>
+              <th>Descripion</th>
+              <th>Amount</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>For paper</td>
+              <td>$12</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>For electricity</td>
+              <td>$40</td>
+            </tr>
+          </table> 
+
     </div>
   
-    <h1 class="bills-name">Group's bills:</h1>
+    
     <div class="bills-container"></div>
     <div class="errors"></div>
     <!-- <fieldset> -->
         <div class="add-bill-container">
         <h2>Add bill</h2>
     <form id="addbill">
-        <label for="id"><h4>Group ID:</h4></label>
-        <div class="group-input"><input type="number" name="groupid" placeholder=""></div>
+        <label for="amount"><h4>Amount:</h4></label>
+        <div class="amount-input"><input type="number" min="1" step="any" name="amount" placeholder=""></div>
+        <label for="description"><h4>Description:</h4></label>
+        <div class="description-input"><input type="text" name="description" placeholder=""></div>
        
         <button>Add</button>
         
     </form>
 </div>
 <!-- </fieldset> -->
-    <script src="js/groups.js"></script>  
+    <script src="js/bills.js"></script>  
 </body>
 </html>

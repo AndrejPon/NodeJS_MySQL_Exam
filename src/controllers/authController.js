@@ -1,4 +1,3 @@
-// const bcrypt = require('bcryptjs/dist/bcrypt');
 const { insertUser, findUserByEmail } = require('../models/authModel');
 const { failResponce, successResponce } = require('../utils/dbHelpers');
 const { hashPass, verifyHash, generateJwtToken } = require('../utils/helper');
@@ -18,7 +17,8 @@ async function login(req, res) {
   const { email, password } = req.body;
   const findResults = await findUserByEmail(email);
   if (findResults === false) return failResponce(res);
-  if (!findResults.length) return failResponce(res, 'email or password does not match 1');
+  if (!findResults.length)
+    return failResponce(res, 'email or password does not match 1');
 
   const foundUserObj = findResults[0];
   if (!verifyHash(password, foundUserObj)) {

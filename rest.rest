@@ -47,18 +47,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 ###
 
 GET http://localhost:3000/bills/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTAzMDkyLCJleHAiOjE2NDc1MDY2OTJ9.fRwmzO8_ePIrl1VQo3oq7eEd8R58zaWDqQBfDGYgVUI
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTI1NDY1LCJleHAiOjE2NDc1MjkwNjV9.r7u-h8VBElwfp1lhTcHO9cIKt5TnwnrhjnBBSm1-FZk
 ###
 
 POST http://localhost:3000/bills
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTAzMDkyLCJleHAiOjE2NDc1MDY2OTJ9.fRwmzO8_ePIrl1VQo3oq7eEd8R58zaWDqQBfDGYgVUI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTI3MzYwLCJleHAiOjE2NDc1MzA5NjB9.t_CSTd_qyxlqf4dzOkXTqK0GpK2ELsz-dMAeOswLoC0
 Content-Type: application/json
 
 {
    
-    "group_id": 2,
-    "amount": 42,
-    "description": "Museum tickets"    
+    "group_id": 3,
+    "amount": 25,
+    "description": "Snacks"    
     
 }

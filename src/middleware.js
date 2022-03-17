@@ -1,6 +1,5 @@
 require('dotenv').config();
 const Joi = require('joi');
-const jwt = require('jsonwebtoken');
 const { failResponce } = require('./utils/dbHelpers');
 const { verifyJwtToken } = require('./utils/helper');
 
@@ -70,7 +69,6 @@ async function validateUserLogin(req, res, next) {
 async function validateToken(req, res, next) {
   const authHeader = req.headers.authorization;
   const tokenGotFromUser = authHeader && authHeader.split(' ')[1];
-  // console.log('tokenGotFromUser ===', tokenGotFromUser);
   if (!tokenGotFromUser) return failResponce(res, 'no token', 401);
   const verifyResult = verifyJwtToken(tokenGotFromUser);
   if (verifyResult === false) return failResponce(res, 'invalid token', 403);
@@ -81,11 +79,9 @@ async function validateToken(req, res, next) {
 async function validateTokenAllTutorials(req, res, next) {
   const authHeader = req.headers.authorization;
   const tokenGotFromUser = authHeader && authHeader.split(' ')[1];
-  // console.log('tokenGotFromUser ===', tokenGotFromUser);
   if (!tokenGotFromUser) return next();
   const verifyResult = verifyJwtToken(tokenGotFromUser);
   if (verifyResult === false) return next();
-  console.log('verifyResult ===', verifyResult);
   req.validUser = true;
   next();
 }

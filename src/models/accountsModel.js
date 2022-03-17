@@ -41,7 +41,6 @@ INSERT INTO ${tableName} (group_id, user_id)
 VALUES (?, ?)
 `;
     const [insertResult] = await conn.execute(sql, [group_id, user_id]);
-    // console.log('inserted data===', [group_id, user_id]);
     await conn.close();
     return insertResult;
   } catch (error) {

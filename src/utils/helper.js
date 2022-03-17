@@ -1,7 +1,5 @@
 const bcrypt = require('bcryptjs');
-// const { JsonWebTokenError } = require('jsonwebtoken');
 const jwt = require('jsonwebtoken');
-// const { password } = require('../dbConfig');
 
 function hashPass(plainPassword) {
   return bcrypt.hashSync(plainPassword, 10);
@@ -20,7 +18,6 @@ function verifyJwtToken(token) {
   const jwtSecret = process.env.JWT_TOKEN_SECRET;
   try {
     const payload = jwt.verify(token, jwtSecret);
-    // console.log('payload ===', payload.id);
     return payload;
   } catch (err) {
     console.log('err ===', err.message);
