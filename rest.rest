@@ -43,4 +43,9 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/accounts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDQ4Mzg0LCJleHAiOjE2NDc0NTE5ODR9.NwprRYsd444pKDOhqbWAIlDAMhATZhI8CxRLspLRvC0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTAzMDkyLCJleHAiOjE2NDc1MDY2OTJ9.fRwmzO8_ePIrl1VQo3oq7eEd8R58zaWDqQBfDGYgVUI
+
+###
+
+GET http://localhost:3000/bills/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTAzMDkyLCJleHAiOjE2NDc1MDY2OTJ9.fRwmzO8_ePIrl1VQo3oq7eEd8R58zaWDqQBfDGYgVUI
