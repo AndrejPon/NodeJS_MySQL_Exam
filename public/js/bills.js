@@ -8,6 +8,7 @@ async function getAllBills(id) {
     headers: { Authorization: `Bearer ${token}` },
   });
   const jsData = await resp.json();
+
   console.log('jsData ===', jsData);
   if (jsData.success === false) {
     window.location.replace('login.html');
@@ -19,7 +20,6 @@ function renderBills(billsArr, dest) {
   dest.innerHTML = '';
   const id = localStorage.getItem('group_id');
   console.log('group_id ===', id);
-  // console.log('renderBills ===', renderBills);
   console.log('billsArr ===', billsArr);
   billsArr.forEach(({ amount, description }) => {
     dest.innerHTML += `
@@ -31,7 +31,6 @@ function renderBills(billsArr, dest) {
     `;
   });
 }
-getAllBills();
 
 const formEl = document.forms.addbill;
 
@@ -63,22 +62,9 @@ async function createNewBill(newBillObj) {
   console.log('dataInJs ===', dataInJs);
   if (dataInJs.success === true) {
     getAllBills();
-    // handleSuccess();
   } else {
     handleErrors();
   }
-}
-
-function handleSuccess() {
-  const alertEl = document.createElement('h4');
-  alertEl.className = 'alert';
-  alertEl.textContent = 'New bill added';
-  document.body.prepend(alertEl);
-  setTimeout(() => {
-    alertEl.remove();
-  }, 3000);
-
-  formEl.reset();
 }
 
 function handleErrors(errorArray) {
@@ -88,3 +74,5 @@ function handleErrors(errorArray) {
     errorsContainerEl.innerHTML += `<p>${err.message}</p>`;
   });
 }
+
+getAllBills();

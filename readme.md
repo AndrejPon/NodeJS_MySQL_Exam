@@ -20,3 +20,7 @@ mysql2
 ## GitHub repository
 
 https://github.com/AndrejPon/NodeJS_MySQL_Exam
+
+## Notes
+
+Bills FE doesn't work.
