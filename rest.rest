@@ -47,7 +47,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 ###
 
 GET http://localhost:3000/bills/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTI1NDY1LCJleHAiOjE2NDc1MjkwNjV9.r7u-h8VBElwfp1lhTcHO9cIKt5TnwnrhjnBBSm1-FZk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTkzNjUzLCJleHAiOjE2NDc1OTcyNTN9.WzZs7eljgat-afwuecWHqkFq5MFyJTke3ZHm1DNbGSw
 ###
 
 POST http://localhost:3000/bills

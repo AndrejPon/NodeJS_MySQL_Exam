@@ -1,8 +1,8 @@
 const URL = 'http://localhost:3000/bills/:id';
 const errorsContainerEl = document.querySelector('.errors');
-
 const billsContainerEl = document.querySelector('.bills-container');
-async function getAllBills() {
+
+async function getAllBills(id) {
   const token = localStorage.getItem('login_token');
   const resp = await fetch(URL, {
     headers: { Authorization: `Bearer ${token}` },
@@ -17,24 +17,30 @@ async function getAllBills() {
 
 function renderBills(billsArr, dest) {
   dest.innerHTML = '';
+  const id = localStorage.getItem('group_id');
+  console.log('group_id ===', id);
   // console.log('renderBills ===', renderBills);
   console.log('billsArr ===', billsArr);
-  billsArr.forEach(({ group_id, amount, description }) => {
+  billsArr.forEach(({ amount, description }) => {
     dest.innerHTML += `
     <article class="single-bill">
-        <h2 class="group-id">ID: ${group_id}</h2>
-        <p>$${amount}</p>
+        <h2 class="group-id">ID: ${id}</h2>
         <p>${description}</p>
-    </article>
+        <p>$${amount}</p>
+        </article>
     `;
   });
 }
+getAllBills();
 
 const formEl = document.forms.addbill;
 
 formEl.addEventListener('submit', (e) => {
   e.preventDefault();
+  const groupId = localStorage.getItem('group_id');
+  console.log('groupId ===', groupId);
   const newBillObj = {
+    groupId,
     amount: formEl.elements.amount.value,
     description: formEl.elements.description.value,
   };
@@ -57,6 +63,7 @@ async function createNewBill(newBillObj) {
   console.log('dataInJs ===', dataInJs);
   if (dataInJs.success === true) {
     getAllBills();
+    // handleSuccess();
   } else {
     handleErrors();
   }
@@ -81,4 +88,3 @@ function handleErrors(errorArray) {
     errorsContainerEl.innerHTML += `<p>${err.message}</p>`;
   });
 }
-getAllBills();

@@ -17,15 +17,23 @@ async function getAllGroups() {
 
 function renderGroups(groupsArr, dest) {
   dest.innerHTML = '';
-  // console.log('renderGroups ===', renderGroups);
   // console.log('groupsArr ===', groupsArr);
   groupsArr.forEach(({ group_id, name }) => {
-    dest.innerHTML += `
-    <article class="single-group">
-        <h2 class="group-id">ID: ${group_id}</h2>
-        <p>${name}</p>
-    </article>
-    `;
+    const singleGroupDiv = document.createElement('div');
+    singleGroupDiv.className = 'single-group-container';
+    const groupIdEl = document.createElement('h2');
+    groupIdEl.textContent = `ID: ${group_id}`;
+    const groupName = document.createElement('p');
+    groupName.textContent = name;
+    singleGroupDiv.append(groupIdEl, groupName);
+    dest.append(singleGroupDiv);
+    singleGroupDiv.setAttribute('data_id', group_id);
+    console.log(singleGroupDiv);
+    singleGroupDiv.addEventListener('click', () => {
+      console.log(group_id);
+      localStorage.setItem('group_id', group_id);
+      window.location.replace('bills.html');
+    });
   });
 }
 
@@ -42,6 +50,7 @@ formEl.addEventListener('submit', (e) => {
 
 async function createNewGroup(newGroupObj) {
   const token = localStorage.getItem('login_token');
+
   if (token === null) throw new Error('token not found');
 
   const resp = await fetch(`${URL}`, {
@@ -53,6 +62,7 @@ async function createNewGroup(newGroupObj) {
     body: JSON.stringify(newGroupObj),
   });
   const dataInJs = await resp.json();
+
   // console.log('dataInJs ===', dataInJs);
   if (dataInJs.success === true) {
     getAllGroups();
@@ -61,6 +71,12 @@ async function createNewGroup(newGroupObj) {
   }
 }
 
+// const singleGroupEl = document.querySelector('.single-group');
+// console.log(singleGroupEl);
+
+// singleGroupEl.addEventListener('click', (e) => {
+//   console.log(group_id);
+// });
 function handleSuccess() {
   const alertEl = document.createElement('h4');
   alertEl.className = 'alert';
