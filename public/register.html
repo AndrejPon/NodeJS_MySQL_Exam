@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+  />
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="header">
+    <header>
+    <img src="https://images.vexels.com/media/users/3/142812/isolated/lists/992801ae3182fa95353e941cfcac9293-shield-logo-emblem-design.png" alt="Logo">
+    <h1>Split Bill</h1>
+    <p>BEST IN MARKET</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="groups.html">Groups</a></li>
+            <li><a href="bills.html">Bills</a></li>
+        </ul>
+    </nav>
+</div>
+    
+    <h3>Register</h3>
+    <div class="errors"></div>
+    <fieldset>
+    <form id="register">
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fullname" placeholder="">
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="">
+        <label for="repeatpassword">Repeat Password</label>
+        <input type="password" name="repeatpassword" placeholder="">
+        <button>Register</button>
+        <p>Or perhaps, just <a href="login.html">login</a>?</p>
+    </form>
+</fieldset>
+    <script src="js/register.js"></script>
+    
+</body>
+</html>

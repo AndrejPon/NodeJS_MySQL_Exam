@@ -1,0 +1,63 @@
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "full_name": "John White",    
+    "email": "john@email.com",
+    "password": "secret123"
+}
+
+###
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "john@email.com",
+    "password": "secret123"
+}
+
+###
+
+POST http://localhost:3000/addgroup
+Content-Type: application/json
+
+{
+    "name": "Trip to Vilnius"
+   
+}
+
+###
+
+POST http://localhost:3000/accounts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3NDQ0NzYxLCJleHAiOjE2NDc0NDgzNjF9.o-tB8U-UgL-WCspjChrB5z5sLWKowNcuOchS1n_4FFI
+Content-Type: application/json
+
+{
+   
+    "group_id": 2
+    
+    
+}
+
+###
+
+GET http://localhost:3000/accounts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTE3NzYxLCJleHAiOjE2NDc1MjEzNjF9.Cb40YVFg9YrH6mzz2EPneWGTkrRpFlu4QRHa5fst4JI
+###
+
+GET http://localhost:3000/bills/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTkzNjUzLCJleHAiOjE2NDc1OTcyNTN9.WzZs7eljgat-afwuecWHqkFq5MFyJTke3ZHm1DNbGSw
+###
+
+POST http://localhost:3000/bills
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTI3MzYwLCJleHAiOjE2NDc1MzA5NjB9.t_CSTd_qyxlqf4dzOkXTqK0GpK2ELsz-dMAeOswLoC0
+Content-Type: application/json
+
+{
+   
+    "group_id": 3,
+    "amount": 25,
+    "description": "Snacks"    
+    
+}
